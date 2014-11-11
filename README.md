@@ -30,6 +30,7 @@ Required Packages (on Ubuntu-14.04)
 
 ```bash
 sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install build-essential cmake python2.7 nodejs default-jre git wget m4
 sudo apt-get install libgmp-dev libmpfr-dev liblua5.2-dev gcc
 sudo apt-get install nodejs-legacy    # If the executable of node.js is `nodejs` instead of `node`
@@ -41,14 +42,22 @@ cd emsdk_portable
 ./emsdk activate latest
 ```
 
-Build lean.js
---------------
+After running `./emsdk activate latest`, you get the following message:
 
-Make sure that you have the following line on your `~/.bashrc`.
+```
+To conveniently access the selected set of tools from the command line, consider adding the following directories to PATH, or call 'source ./emsdk_env.sh' to do this for you.
+
+   /home/PATH/TO/emsdk_portable:/home/PATH/TO/emsdk_portable/clang/fastcomp/build_master_32/bin:/home/PATH/TO/emsdk_portable/emscripten/master
+```
+
+Make sure to add the last line to the `PATH` variable in your shell configuration. For instance, if you are using bash, add the following to your `~/.bashrc`.
 
 ```bash
-source ~/PATH/TO/emsdk_portable/emsdk_set_env.sh
+PATH=/home/PATH/TO/emsdk_portable:/home/PATH/TO/emsdk_portable/clang/fastcomp/build_master_32/bin:/home/PATH/TO/emsdk_portable/emscripten/master:$PATH
 ```
+
+Build lean.js
+--------------
 
 Execute the following script to checkout and build lean.js.
 ```bash
