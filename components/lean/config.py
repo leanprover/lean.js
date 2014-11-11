@@ -5,12 +5,12 @@ SOURCE_DIR = 'lean-master'
 CONFIGURE_CMD = ' '.join([
     'cmake',
     '-DCMAKE_BUILD_TYPE=Release',
-    '-DCMAKE_CXX_COMPILER=clang++',
+    '-DCMAKE_CXX_COMPILER=g++',
     '-DTCMALLOC=OFF',
     '-DIGNORE_SORRY=ON',
     'src/'
 ])
-MAKE_CMD = 'emmake make'
+MAKE_CMD = 'emmake make -j'
 ARTIFACTS =  {
     'includes': [
         {'source':'CGAL-%s/include/' % VERSION, 'name':'cgal'}

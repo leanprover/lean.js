@@ -31,7 +31,7 @@ Required Packages (on Ubuntu-14.04)
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential cmake python2.7 nodejs default-jre git wget m4
-sudo apt-get install libgmp-dev libmpfr-dev liblua5.2-dev clang-3.3
+sudo apt-get install libgmp-dev libmpfr-dev liblua5.2-dev gcc
 sudo apt-get install nodejs-legacy    # If the executable of node.js is `nodejs` instead of `node`
 wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz
 tar xvf emsdk-portable.tar.gz
