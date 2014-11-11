@@ -18,7 +18,7 @@ CONFIGURE_CMD = ' '.join([
     '-DCMAKE_CXX_FLAGS="-v -U__SSE2_MATH__ --ignore-dynamic-linking -U__GNUG__"',
     'src/'
 ])
-MAKE_CMD = 'emmake make'
+MAKE_CMD = 'emmake make -j'
 ARTIFACTS =  {
     'includes': [
         {'source':'CGAL-%s/include/' % VERSION, 'name':'cgal'}
