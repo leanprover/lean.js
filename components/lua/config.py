@@ -1,6 +1,7 @@
 NAME = 'lua'
 VERSION = '5.2.0'
-DOWNLOADS = ['http://www.lua.org/ftp/lua-%s.tar.gz' % (VERSION)]
+#DOWNLOADS = ['http://www.lua.org/ftp/lua-%s.tar.gz' % (VERSION)]
+DOWNLOADS = ['https://leanprover.github.io/lean.js/lua-%s.tar.gz' % (VERSION)]
 SOURCE_DIR = 'lua-%s' % VERSION
 SOURCE_PATCHES = [
     { 'file': 'Makefile', 'patch': 'Makefile.patch' },
