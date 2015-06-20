@@ -28,6 +28,7 @@ fi
 TMP_JS=`mktemp ./tmp_XXXX`
 mv ${TMP_JS} ${TMP_JS}.js
 TMP_JS=${TMP_JS}.js
+TMP_OUT=`mktemp ./tmp_out_XXXX`
 
 # Copy prefix script
 cat << EOF >> "${TMP_JS}"
@@ -50,5 +51,8 @@ fs.readFile("${TEST_FILENAME}", 'utf8', function(err, data) {
 EOF
 
 # Run node and exit
-node "${TMP_JS}"
-rm -- "${TMP_JS}"
+node "${TMP_JS}" 2>&1 | tee ${TMP_OUT}
+grep "^FLYCHECK_BEGIN ERROR" ${TMP_OUT} > /dev/null 2>&1 
+[ $? == 0 ] && RET=1 || RET=0
+rm -- "${TMP_JS}" "${TMP_OUT}"
+exit ${RET}
