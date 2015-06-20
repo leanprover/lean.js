@@ -3,7 +3,7 @@ INSTALL_PREFIX=/var/www/html/
 all: lean.js
 	echo "done"
 
-lean.js: gmp mpfr lua build/lean/source/lean-master/shell/lean build/lean/source/lean-master/library.tar.gz
+lean.js: libs/libgmp.so libs/libmpfr.so libs/liblua.so build/lean/source/lean-master/shell/lean build/lean/source/lean-master/library.tar.gz
 	python build_all.py lean_js
 	cd build/lean_js/source/lean-master/shell && tar xvfz ../../../../lean/source/lean-master/library.tar.gz
 	rm -rf build/lean_js/source/lean-master/shell/lean.*
@@ -16,13 +16,13 @@ build/lean/source/lean-master/library.tar.gz: build/lean/source/lean-master/shel
 	cd build/lean/source/lean-master/library && ../bin/linja clean && ../bin/linja -X 
 	cd build/lean/source/lean-master && tar cvfz library.tar.gz `find library -name "*.olean"` 
 
-gmp:
+libs/libgmp.so:
 	python build_all.py gmp
 
-mpfr:
+libs/libmpfr.so:
 	python build_all.py mpfr
 
-lua:
+libs/liblua.so:
 	python build_all.py lua
 
 push: 
