@@ -13,6 +13,7 @@ build/lean/source/lean-master/shell/lean:
 	python build_all.py lean
 
 build/lean/source/lean-master/library.tar.gz: build/lean/source/lean-master/shell/lean 
+	cp .project build/lean/source/lean-master/library
 	cd build/lean/source/lean-master/library && ../bin/linja clean && ../bin/linja -X 
 	cd build/lean/source/lean-master && tar cvfz library.tar.gz `find library -name "*.olean"` 
 
