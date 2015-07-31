@@ -68,3 +68,8 @@ make
 
  - The generated ``lean.js`` file is located at ``build/lean_js/source/lean-master/shell`` directory.
  - ``make push`` will destructively update the ``gh-pages`` branch of ``origin`` repository.
+
+Examples
+--------
+
+ - [Simple example](https://github.com/leanprover/lean.js/blob/master/examples/simple-lean-js-example.html) of using `lean.js`, written by Prof. Nathan Carter.
