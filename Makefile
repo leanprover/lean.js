@@ -34,7 +34,7 @@ push:
 	cp build/lean_js/source/lean-master/shell/lean.js lean.js
 	git add lean.js
 	git commit -m "Update `date -R`"
-	echo git push --force origin gh-pages:gh-pages
+	git push --force origin gh-pages:gh-pages
 	git checkout master
 
 clean:
