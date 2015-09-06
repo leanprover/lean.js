@@ -3,6 +3,8 @@ lean.js
 
 LIVE DEMO: https://leanprover.github.com/live
 
+COMPILED JS: https://leanprover.github.io/lean.js/lean.js
+
 This is a project to aid porting [Lean](http://leanprover.github.io/)
 code to Javascript using an amazing tool called
 [Emscripten](https://github.com/kripken/emscripten). It includes an
@@ -17,8 +19,8 @@ have tested it on Ubuntu-14.04 (32-bit) machines.
 
 We host the latest version of compiled javascript at
 [gh-pages](https://github.com/leanprover/lean.js/tree/gh-pages) branch
-of this repository. You can link the compiled javascript from your
-HTML code:
+of this repository. You can access it via https://leanprover.github.io/lean.js/lean.js.
+You can also link the compiled javascript from your HTML code:
 
 ```html
 <script src="https://leanprover.github.io/lean.js/lean.js" type="text/javascript" charset="utf-8"></script>
