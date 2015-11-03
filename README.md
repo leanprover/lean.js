@@ -75,3 +75,15 @@ Examples
 --------
 
  - [Simple example](https://github.com/leanprover/lean.js/blob/master/examples/simple-lean-js-example.html) of using `lean.js`, written by Prof. Nathan Carter.
+
+Known Issues
+------------
+
+CMake fails to pick up `emar` and as a result you may have the following error:
+
+```
+Error running link command: No such file or directory
+make[2]: *** [libleanstatic.a] Error 2
+```
+
+If it happens, edit `lean.js/build/lean_js/source/lean-master/CMakeFiles/leanstatic.dir/link.txt` file. Replace `""` with `"emar"`. Then do `cd lean.js/build/lean_js/source/lean-master` and run `make` again.
