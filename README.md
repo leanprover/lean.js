@@ -40,11 +40,11 @@ wget https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.t
 tar xvf emsdk-portable.tar.gz
 cd emsdk_portable
 ./emsdk update
-./emsdk install latest
-./emsdk activate latest
+./emsdk install sdk-tag-1.30.6-32bit emscripten-tag-1.30.6-32bit clang-tag-e1.30.6-32bit
+./emsdk activate sdk-tag-1.30.6-32bit emscripten-tag-1.30.6-32bit clang-tag-e1.30.6-32bit
 ```
 
-After running `./emsdk activate latest`, you get the following message:
+After running `./emsdk activate sdk-tag-1.30.6-32bit emscripten-tag-1.30.6-32bit clang-tag-e1.30.6-32bit`, you get the following message:
 
 ```
 To conveniently access the selected set of tools from the command line, consider adding the following directories to PATH, or call 'source ./emsdk_env.sh' to do this for you.
