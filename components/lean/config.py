@@ -1,6 +1,6 @@
 NAME = 'lean'
 VERSION = '0.2.0'
-https://github.com/leanprover/lean.js/tree/master/componentsDOWNLOADS = ['https://github.com/leanprover/lean/archive/master.tar.gz']
+DOWNLOADS = ['https://github.com/leanprover/lean/archive/master.tar.gz']
 SOURCE_DIR = 'lean-master'
 CONFIGURE_CMD = ' '.join([
     'cmake',
