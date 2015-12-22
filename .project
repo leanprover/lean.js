@@ -1,4 +1,7 @@
 + *.lean
++ *.hlean
 - flycheck*.lean
+- flycheck*.hlean
 - .#*.lean
+- .#*.hlean
 - theories/

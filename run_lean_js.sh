@@ -12,6 +12,7 @@ fi
 
 LEAN_JS_FILENAME=$1
 TEST_FILENAME=$2
+TEST_FILEEXT="${TEST_FILENAME##*.}"
 
 # Check LEAN_JS_FILENAME and TEST_FILENAME exist
 if [ ! -f ${LEAN_JS_FILENAME} ] ; then
@@ -41,7 +42,22 @@ EOF
 cat "${LEAN_JS_FILENAME}" >> "${TMP_JS}"
 
 # Copy postfix script
-cat << EOF >> "${TMP_JS}"
+
+if [ "${TEST_FILEEXT}" = "hlean" ] ; then
+  echo "PROCESS HLEAN"
+  # In case of hlean, initiate HOTT kernel and import core module
+  cat << EOF >> "${TMP_JS}"
+Module.lean_init(true);
+Module.lean_import_module('core');
+fs.readFile("${TEST_FILENAME}", 'utf8', function(err, data) {
+    FS.writeFile("${TEST_FILENAME}", data, {encoding: 'utf8'});
+    Module.lean_process_file("${TEST_FILENAME}");
+});
+EOF
+else
+  echo "PROCESS LEAN"
+  # Otherwise (lean), initiate standard kernel and import standard module
+  cat << EOF >> "${TMP_JS}"
 Module.lean_init();
 Module.lean_import_module('standard');
 fs.readFile("${TEST_FILENAME}", 'utf8', function(err, data) {
@@ -49,6 +65,7 @@ fs.readFile("${TEST_FILENAME}", 'utf8', function(err, data) {
     Module.lean_process_file("${TEST_FILENAME}");
 });
 EOF
+fi
 
 # Run node and exit
 node "${TMP_JS}" 2>&1 | tee ${TMP_OUT}
