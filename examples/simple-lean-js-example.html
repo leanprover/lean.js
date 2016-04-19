@@ -68,7 +68,7 @@ Module.postRun = function () {
  * Initialize the lean.js module.
  */
 console.log( '--- Calling lean_init()...' ); startTimer();
-Module.lean_init();
+Module.lean_init( false ); // or use true for HoTT support
 console.log( '--- lean_init() complete.', checkTimer() );
 /*
  * Import the Lean standard module.
