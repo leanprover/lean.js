@@ -3,11 +3,10 @@ INSTALL_PREFIX=/var/www/html/
 all: lean.js
 	echo "done"
 
-lean.js: libs/libgmp.so libs/libmpfr.so libs/liblua.so build/lean/source/lean-master/shell/lean build/lean/source/lean-master/library.tar.gz build/lean/source/lean-master/hott.tar.gz
+lean.js: libs/libgmp.so libs/libmpfr.so libs/liblua.so build/lean/source/lean-master/shell/lean build/lean/source/lean-master/library.tar.gz
 	python build_all.py lean_js
 	rm -rf build/lean_js/source/lean-master/shell/library
 	cd build/lean_js/source/lean-master/shell && tar xvfz ../../../../lean/source/lean-master/library.tar.gz
-	cd build/lean_js/source/lean-master/shell && tar xvfz ../../../../lean/source/lean-master/hott.tar.gz
 	rm -rf build/lean_js/source/lean-master/shell/lean.*
 	emmake make -C build/lean_js/source/lean-master/ || emmake make -C build/lean_js/source/lean-master/ || emmake make -C build/lean_js/source/lean-master/
 
