@@ -13,7 +13,7 @@ CONFIGURE_CMD = ' '.join([
     '-DTCMALLOC=OFF',
     '-DMULTI_THREAD=OFF',
     '-DIGNORE_SORRY=ON',
-    '-DCMAKE_CXX_FLAGS="-v -U__SSE2_MATH__ -U__GNUG__"',
+    '-DCMAKE_CXX_FLAGS="-v -U__SSE2_MATH__ --ignore-dynamic-linking -U__GNUG__"',
     'src/'
 ])
 MAKE_CMD = 'emmake make'

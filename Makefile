@@ -13,7 +13,7 @@ lean.js: libs/libgmp.so libs/libmpfr.so libs/liblua.so build/lean/source/lean-ma
 lean3.js: libs/libgmp.so libs/libmpfr.so build/lean3/source/lean-lean3/shell/lean build/lean3/source/lean-lean3/library.tar.gz
 	python build_all.py lean3_js
 	rm -rf build/lean3_js/source/lean-lean3/shell/library
-	cd build/lean3_js/source/lean-lean3/shell && tar xvfz ../../../../lean/source/lean-lean3/library.tar.gz
+	cd build/lean3_js/source/lean-lean3/shell && tar xvfz ../../../../lean3/source/lean-lean3/library.tar.gz
 	rm -rf build/lean3_js/source/lean-lean3/shell/lean.*
 	emmake make -C build/lean3_js/source/lean-lean3/ || emmake make -C build/lean3_js/source/lean-lean3/ || emmake make -C build/lean3_js/source/lean-lean3/
 
