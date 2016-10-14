@@ -61,12 +61,12 @@ push:
 
 push3:
 	git checkout gh-pages
-	git reset --hard origin/gh-pages
+	git reset --hard origin/gh-pages~
 	cp build/lean3_js/source/lean-lean3/shell/lean.js lean3.js
 	git add lean3.js
 	git commit -m "Update `date -R`"
 	git push --force origin gh-pages:gh-pages
-	git checkout master
+	git checkout lean3
 
 clean:
 	rm -rf build libs includes
