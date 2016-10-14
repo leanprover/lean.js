@@ -1,6 +1,6 @@
 INSTALL_PREFIX=/var/www/html/
 
-all: lean.js
+all: lean.js lean3.js
 	echo "done"
 
 lean.js: libs/libgmp.so libs/libmpfr.so libs/liblua.so build/lean/source/lean-master/shell/lean build/lean/source/lean-master/library.tar.gz
@@ -55,6 +55,15 @@ push:
 	git reset --hard origin/gh-pages~
 	cp build/lean_js/source/lean-master/shell/lean.js lean.js
 	git add lean.js
+	git commit -m "Update `date -R`"
+	git push --force origin gh-pages:gh-pages
+	git checkout master
+
+push3:
+	git checkout gh-pages
+	git reset --hard origin/gh-pages
+	cp build/lean3_js/source/lean-lean3/shell/lean.js lean3.js
+	git add lean3.js
 	git commit -m "Update `date -R`"
 	git push --force origin gh-pages:gh-pages
 	git checkout master
